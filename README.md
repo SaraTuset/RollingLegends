@@ -3,6 +3,7 @@ Roll characters repository
 
 Nombres:
     Sara Tuset Villoria
+    Sergio Rodríguez Gil
 
 https://github.com/SaraTuset/RollingLegends
 
