@@ -17,7 +17,7 @@
         <header>
             <h1 class="site-heading text-center text-faded d-none d-lg-block">
                 <span class="site-heading-upper text-primary mb-3">RollingLegends</span>
-                <span class="site-heading-lower">Formulario de nuevo elemento</span>
+                <span class="site-heading-lower">Nuevo elemento</span>
             </h1>
         </header>
         
@@ -27,51 +27,25 @@
                     <div class="col-xl-9 mx-auto">
                         <div class="cta-inner bg-faded text-center rounded">
                             <h2 class="section-heading mb-5">
-                                <span class="section-heading-upper">Come On In</span>
-                                <span class="section-heading-lower">We're Open</span>
+                                <span class="section-heading-lower">Formulario</span>
                             </h2>
-                            <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
-                                <li class="list-unstyled-item list-hours-item d-flex">
-                                    Sunday
-                                    <span class="ms-auto">Closed</span>
-                                </li>
-                                <li class="list-unstyled-item list-hours-item d-flex">
-                                    Monday
-                                    <span class="ms-auto">7:00 AM to 8:00 PM</span>
-                                </li>
-                                <li class="list-unstyled-item list-hours-item d-flex">
-                                    Tuesday
-                                    <span class="ms-auto">7:00 AM to 8:00 PM</span>
-                                </li>
-                                <li class="list-unstyled-item list-hours-item d-flex">
-                                    Wednesday
-                                    <span class="ms-auto">7:00 AM to 8:00 PM</span>
-                                </li>
-                                <li class="list-unstyled-item list-hours-item d-flex">
-                                    Thursday
-                                    <span class="ms-auto">7:00 AM to 8:00 PM</span>
-                                </li>
-                                <li class="list-unstyled-item list-hours-item d-flex">
-                                    Friday
-                                    <span class="ms-auto">7:00 AM to 8:00 PM</span>
-                                </li>
-                                <li class="list-unstyled-item list-hours-item d-flex">
-                                    Saturday
-                                    <span class="ms-auto">9:00 AM to 5:00 PM</span>
-                                </li>
-                            </ul>
-                            <p class="address mb-5">
-                                <em>
-                                    <strong>1116 Orchard Street</strong>
-                                    <br />
-                                    Golden Valley, Minnesota
-                                </em>
-                            </p>
-                            <p class="mb-0">
-                                <small><em>Call Anytime</em></small>
-                                <br />
-                                (317) 585-8468
-                            </p>
+                            <form>
+                                <label for="inputName" class="address mb-5"><em>Name</em></label>
+                                <input type="name" id="inputName" placeholder="Name">
+                                <label for="inputImagen"class="address mb-5"><em>Imagen</em></label>
+                                <input type="url" id="inputImagen" placeholder="Url">
+                                <label for="inputText"class="address mb-5"><em>Descripción</em></label>
+                                <input type="text" id="inputText" placeholder="Descripción">
+                                <label for="inputVida"class="address mb-5"><em>Puntos de vida</em></label>
+                                <input type="number" id="inputVida" placeholder="0">
+                                <label for="inputAtaque"class="address mb-5"><em>Ataque</em></label>
+                                <input type="number" id="inputAtaque" placeholder="0">
+                                <label for="inputDefensa"class="address mb-5"><em>Defensa</em></label>
+                                <input type="number" id="inputDefensa" placeholder="0">
+                                <button type="submit">Guardar</button>
+                                <button> <a href="pagina_principal.html">Cancelar</a></button>
+                            </form>
+                            
                         </div>
                     </div>
                 </div>
