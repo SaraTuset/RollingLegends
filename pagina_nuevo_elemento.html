@@ -12,6 +12,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/form.css" rel="stylesheet" />
     </head>
     <body>
         <header>
@@ -27,25 +28,38 @@
                     <div class="col-xl-9 mx-auto">
                         <div class="cta-inner bg-faded text-center rounded">
                             <h2 class="section-heading mb-5">
-                                <span class="section-heading-lower">Formulario</span>
-                            </h2>
-                            <form>
-                                <label for="inputName" class="address mb-5"><em>Name</em></label>
-                                <input type="name" id="inputName" placeholder="Name">
-                                <label for="inputImagen"class="address mb-5"><em>Imagen</em></label>
-                                <input type="url" id="inputImagen" placeholder="Url">
-                                <label for="inputText"class="address mb-5"><em>Descripción</em></label>
-                                <input type="text" id="inputText" placeholder="Descripción">
-                                <label for="inputVida"class="address mb-5"><em>Puntos de vida</em></label>
-                                <input type="number" id="inputVida" placeholder="0">
-                                <label for="inputAtaque"class="address mb-5"><em>Ataque</em></label>
-                                <input type="number" id="inputAtaque" placeholder="0">
-                                <label for="inputDefensa"class="address mb-5"><em>Defensa</em></label>
-                                <input type="number" id="inputDefensa" placeholder="0">
-                                <button type="submit">Guardar</button>
-                                <button> <a href="pagina_principal.html">Cancelar</a></button>
-                            </form>
+                            <span class="section-heading-lower">Formulario</span>
                             
+                            <form role="form">
+                                <div class="form-group">
+                                    <label for="inputName">Nombre</label>
+                                    <input type="name" id="inputName" placeholder="Escribe nombre">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputImagen">Imagen</label>
+                                    <input type="url" id="inputImagen" placeholder="Escribe url">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputText">Descripción</label>
+                                    <input type="text" id="inputText" placeholder="Escribe descripción">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputVida">Puntos de vida</label>
+                                    <input type="number" id="inputVida" placeholder="0">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputAtaque">Ataque</label>
+                                    <input type="number" id="inputAtaque" placeholder="0">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputDefensa">Defensa</label>
+                                    <input type="number" id="inputDefensa" placeholder="0">
+                                </div>
+                                
+                                <button type="submit" class="btn btn-success btn-xl">Guardar</button>
+                                <button class="btn btn-success btn-xl"> <a href="pagina_principal.html">Cancelar</a></button>
+                            </form>
+                            </h2>
                         </div>
                     </div>
                 </div>
