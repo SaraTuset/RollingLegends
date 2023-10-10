@@ -4051,6 +4051,10 @@ fieldset:disabled .btn {
   width: auto;
 }
 
+.btn-form{
+  width: 75%;
+}
+
 .btn-group {
   border-radius: 0.375rem;
 }
