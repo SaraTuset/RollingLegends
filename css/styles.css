@@ -4050,6 +4050,9 @@ fieldset:disabled .btn {
 .btn-toolbar .input-group {
   width: auto;
 }
+.form-group{
+  margin-top: 1em;
+}
 
 .btn-form{
   width: 75%;
