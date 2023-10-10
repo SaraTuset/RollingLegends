@@ -12842,20 +12842,27 @@ table {
   margin-bottom: 20px;
 }
 
-td,
+
 th {
   border: 1px solid #000;
   text-align: left;
   padding: 8px;
 }
 
-tr:nth-child(odd) {
-  background-color: #e6a756;
-}
-
 tr:first-child {
+  background-color: #e6a756;
   border: 2px solid #000;
 }
+
+
+td:first-child {
+  border-radius: 10px 0 0 10px;
+}
+td:last-child{
+  border-radius: 0 10px 10px 0;
+}
+
+tr:hover {background-color: #e6a756;}
 
 a:link {
   color: #000;
