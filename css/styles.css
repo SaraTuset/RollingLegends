@@ -12854,6 +12854,9 @@ tr:first-child {
   border: 2px solid #000;
 }
 
+tr:not(:first-child) {
+  cursor: pointer;
+}
 
 td:first-child {
   border-radius: 10px 0 0 10px;
