@@ -12856,6 +12856,7 @@ tr:first-child {
 
 tr:not(:first-child) {
   cursor: pointer;
+  border-bottom: 1pt solid black;
 }
 
 td:first-child {
