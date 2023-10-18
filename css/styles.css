@@ -12777,7 +12777,7 @@ p {
     left: 0;
     width: 30%;
     margin-top: 3rem;
-    position: absolute;
+    position: relative;
   }
 
   .intro .intro-text .intro-button {
