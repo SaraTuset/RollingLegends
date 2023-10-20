@@ -4044,7 +4044,7 @@ fieldset:disabled .btn {
 .btn-toolbar {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .btn-toolbar .input-group {
