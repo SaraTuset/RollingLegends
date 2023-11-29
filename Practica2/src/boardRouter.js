@@ -5,28 +5,28 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
 
-    res.render('index', { 
+    res.render('pagina_principal', { 
         elementos: boardService.getElementos() 
     });
 });
 
-router.post('/post/new', (req, res) => {
+router.post('/elemento/new', (req, res) => {
 
-    let { nombre, descripcion, puntosVida, ataque, defensa } = req.body;
+    let { nombre, descripcion, puntosVida, ataque, defensa, imagen, genero } = req.body;
 
-    boardService.addElemento({ nombre, descripcion, puntosVida, ataque, defensa });
+    boardService.addElemento({ nombre, descripcion, puntosVida, ataque, defensa, imagen, genero });
 
     res.render('saved_post');
 });
 
-router.get('/post/:id', (req, res) => {
+router.get('/elemento/:id', (req, res) => {
 
-    let post = boardService.getElemento(req.params.id);
+    let elemento = boardService.getElemento(req.params.id);
 
     res.render('pagina_detalle', { elemento });
 });
 
-router.get('/post/:id/delete', (req, res) => {
+router.get('/elemento/:id/delete', (req, res) => {
 
     boardService.deleteElemento(req.params.id);
 

@@ -27,7 +27,6 @@
                 <div class="intro">
                     <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src={{imagen}} alt="..." />
                     <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-                        {{#elementos}}
                         <h2 class="section-heading mb-4">
                             <span class="section-heading-lower" href="elemento/{{id}}">Nombre: {{nombre}}</span>
                         </h2>
@@ -35,7 +34,7 @@
 						<p class="mb-3" href="elemento/{{id}}">Puntos de vida: {{puntosVida}}</p>
 						<p class="mb-3" href="elemento/{{id}}">Ataque: {{ataque}}</p>
 						<p class="mb-3" href="elemento/{{id}}">Defensa: {{defensa}}</p>
-                        {{/elementos}}
+                        <p class="mb-3" href="elemento/{{id}}">Genero: {{genero}}</p>
                         <div class="btn-toolbar">
                         <div class="d-grid gap-2">
                         <div class="btn-group">
@@ -61,14 +60,10 @@
                             <h2 class="section-heading mb-4">                           
                                 <span class="section-heading-lower">Objetos equipados:</span>
                             </h2>
-                            <h2 class="section-heading mb-4"><span class="section-heading-upper">Nombre: Hacha Antigua</span></h2>
-                            <p class="mb-3">Descripción: Hacha usada por los enanos del reino de Yuwivia</p>
-                            <p class="mb-3">Ataque adicional: 10</p>
-                            <p class="mb-3">Defensa adicional: 0</p>
-                            <h2 class="section-heading mb-4"><span class="section-heading-upper">Nombre: Escudo Espumoso</span></h2>
-                            <p class="mb-3">Descripción: Escudo usada por los enanos del reino de Yuwivia, aunque este a sido modificado por Drurak para portar la imagen de una cerveza</p>
-                            <p class="mb-3">Ataque adicional: 0</p>
-                            <p class="mb-3">Defensa adicional: 10</p>
+                            <h2 class="section-heading mb-4" href="subelemento/{{subId}}"><span class="section-heading-upper">Nombre: {{nombreSub}}</span></h2>
+                            <p class="mb-3" href="subelemento/{{subId}}">Descripción: {{descripcionSub}}</p>
+                            <p class="mb-3" href="subelemento/{{subId}}">Ataque adicional: {{ataqueSub}}</p>
+                            <p class="mb-3" href="subelemento/{{subId}}">Defensa adicional: {{defensaSub}}</p>
                         </div>
                     </div>
                 </div>
