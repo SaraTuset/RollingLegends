@@ -12891,3 +12891,24 @@ a:hover {
   left: 0;
   position: absolute;
 }
+
+.elementos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  margin-bottom: 30px;
+}
+
+.elemento {
+  cursor: pointer;
+  background-color: #e6a756;
+  border-radius: 10px 10px 10px 10px;
+  border: 2px solid #000;
+  cursor: pointer;
+  text-align: center;
+  padding: auto;
+}
+
+.elemento:hover {
+  border: 2px solid #fff;
+}
