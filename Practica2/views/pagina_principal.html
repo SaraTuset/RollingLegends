@@ -14,7 +14,7 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="/Practica2/public/css/styles.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -37,71 +37,21 @@
                                 <th>Ataque</th>
                                 <th>Defensa</th>
                             </tr>
-                            <tr onclick="window.location='pagina_detalle.html';">
-                                <td>Drurak</td>
-                                <td>50</td>
-                                <td>25</td>
-                                <td>25</td>
+                            {{#elementos}}
+                            <tr href="elemento/{{id}}">
+                                <td>{{Nombre}}</td>
+                                <td>{{PV}}</td>
+                                <td>{{Ataque}}</td>
+                                <td>{{Defensa}}</td>
                             </tr>
-                            <tr onclick="window.location='pagina_detalle.html';">
-                                <td>Vex</td>
-                                <td>30</td>
-                                <td>35</td>
-                                <td>20</td>
-                            </tr>
-                            <tr onclick="window.location='pagina_detalle.html';">
-                                <td>Percy</td>
-                                <td>20</td>
-                                <td>25</td>
-                                <td>25</td>
-                            </tr>
-                            <tr onclick="window.location='pagina_detalle.html';">
-                                <td>Pike</td>
-                                <td>40</td>
-                                <td>25</td>
-                                <td>25</td>
-                            </tr>
-                            <tr onclick="window.location='pagina_detalle.html';">
-                                <td>Vax</td>
-                                <td>30</td>
-                                <td>35</td>
-                                <td>20</td>
-                            </tr>
-                            <tr onclick="window.location='pagina_detalle.html';">
-                                <td>Keyleth</td>
-                                <td>35</td>
-                                <td>5</td>
-                                <td>30</td>
-                            </tr>
-                            <tr onclick="window.location='pagina_detalle.html';">
-                                <td>Scanlan</td>
-                                <td>30</td>
-                                <td>20</td>
-                                <td>20</td>
-                            </tr>
-                            <tr onclick="window.location='pagina_detalle.html';">
-                                <td>Grog</td>
-                                <td>70</td>
-                                <td>45</td>
-                                <td>35</td>
-                            </tr>
-                            <tr onclick="window.location='pagina_detalle.html';">
-                                <td>Trinket</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                            <tr onclick="window.location='pagina_detalle.html';">
-                                <td>Jagger</td>
-                                <td>5000</td>
-                                <td>2500</td>
-                                <td>2500</td>
-                            </tr>
-                            
+                            {{/elementos}}
+
 
                         </table>
                         <div class="btn-group">
-                            <button type="button" class="btn btn-primary btn-xl" onclick="window.location.href='pagina_nuevo_elemento.html'">Crear nuevo personaje</button>
+                            <button type="button" class="btn btn-primary btn-xl"
+                                onclick="window.location.href='/Practica2/public/pagina_nuevo_elemento.html'">Crear nuevo
+                                personaje</button>
                         </div>
                     </div>
                 </div>
