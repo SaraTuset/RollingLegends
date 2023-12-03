@@ -1,11 +1,9 @@
 const elementos = new Map();
 let nextId = 0;
-let subelementos = new Map();
-let nextSubId = 0;
 
-addElemento({ nombre: "Drurak", descripcion: "Drurak solía ser el dueño de una pequeña taberna en uno de los muchos barrios olvidados del reino de Yuwivia. Cuando empezó la guerra, su taverna fue calcinada junto con sus seres queridos. Ahora lucha con sus viejas armas para vengar a aquellos que perdieron su vida por culpa de esta injusta guerra", puntosVida: "50", ataque: "25", defensa: "25", imagen: "http://drive.google.com/uc?export=view&id=1m5AFh_qqn_h2-npItcQjbqJQRaHR0AsO", genero: "masculino" });
-addSubElemento({ id: 0, nombreSub: "Hacha Antigua", descripcionSub: "Hacha usada por los enanos del reino de Yuwivia", ataqueSub: "10", defensaSub: "0"});
-addSubElemento({ id: 0, nombreSub: "Escudo Espumoso", descripcionSub: "Escudo usada por los enanos del reino de Yuwivia, aunque este a sido modificado por Drurak para portar la imagen de una cerveza", ataqueSub: "0", defensaSub: "10"});
+addElemento({ nombre: "Drurak", descripcion: "Drurak solía ser el dueño de una pequeña taberna en uno de los muchos barrios olvidados del reino de Yuwivia. Cuando empezó la guerra, su taverna fue calcinada junto con sus seres queridos. Ahora lucha con sus viejas armas para vengar a aquellos que perdieron su vida por culpa de esta injusta guerra", puntosVida: "50", ataque: "25", defensa: "25", imagen: "http://drive.google.com/uc?export=view&id=1m5AFh_qqn_h2-npItcQjbqJQRaHR0AsO", genero: "masculino", subelementos: [{nombreSub: "Hacha Antigua", descripcionSub: "Hacha usada por los enanos del reino de Yuwivia", ataqueSub: "10", defensaSub: "0"}, {nombreSub: "Escudo Espumoso", descripcionSub: "Escudo usada por los enanos del reino de Yuwivia, aunque este a sido modificado por Drurak para portar la imagen de una cerveza", ataqueSub: "0", defensaSub: "10"}] });
+//addSubElemento({nombreSub: "Hacha Antigua", descripcionSub: "Hacha usada por los enanos del reino de Yuwivia", ataqueSub: "10", defensaSub: "0"});
+//addSubElemento({nombreSub: "Escudo Espumoso", descripcionSub: "Escudo usada por los enanos del reino de Yuwivia, aunque este a sido modificado por Drurak para portar la imagen de una cerveza", ataqueSub: "0", defensaSub: "10"});
 
 addElemento({ nombre: "Jagger", descripcion: "'Míster Jägger' es uno de los youtubers y streamers que más dinero genera en nuestro país", puntosVida: "5000", ataque: "2500", defensa: "2500", imagen: "http://drive.google.com/uc?export=view&id=1WBlX0P-qbzrRq9Ekw6__6b1nF_k4ndJO", genero: "masculino" });
 
@@ -31,11 +29,19 @@ export function addElemento(elemento) {
     elementos.set(elemento.id, elemento);
 }
 
-export function addSubElemento(subelemento) {
-    let subId = nextSubId++;
-    subelemento.subId = subId.toString();
-    subelementos.set(subelemento.subId, subelemento);
+export function editElemento(elemento, id) {
+    elemento.id = id.toString();
+    elementos.set(elemento.id, elemento);
 }
+/*
+export function addSubElemento(elemento, id){
+
+}
+*/
+//export function addSubElemento(elemento, id) {
+  //  elemento.id = id.toString();
+  //  elementos.set(elemento.id, elemento);
+//}
 
 export function deleteElemento(id){
     elementos.delete(id);
