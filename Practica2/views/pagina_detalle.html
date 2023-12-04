@@ -81,14 +81,7 @@
                     <div class="col-xl-9 mx-auto">
                         <div class="cta-inner bg-faded text-center rounded">
                             <h2 class="section-heading mb-4">
-								<form role="form" action="/elemento/{{elemento.id}}/edited" method="post">
-                                        <input class="form-control" name="nombre" type="hidden" id="inputName" href="elemento/{{id}}" value="{{elemento.nombre}}">
-                                        <input class="form-control" name = "imagen" type="hidden" id="inputImagen" href="elemento/{{id}}" value="{{elemento.imagen}}">
-                                        <input class="form-control" name = "descripcion" type="hidden" id="inputText" href="elemento/{{id}}" value="{{elemento.descripcion}}">
-                                        <input class="form-control" name = "puntosVida" type="hidden" id="inputVida" href="elemento/{{id}}" value="{{elemento.puntosVida}}">
-                                        <input class="form-control" name = "ataque" type="hidden" id="inputAtaque" href="elemento/{{id}}" value="{{elemento.ataque}}">
-                                        <input class="form-control" name = "defensa" type="hidden" id="inputDefensa" href="elemento/{{id}}" value="{{elemento.defensa}}">
-                                        <input class="form-control" name = "genero" type="hidden" id="inputGenero" href="elemento/{{id}}" value="{{elemento.genero}}">
+								<form role="form" action="/elemento/{{elemento.id}}/subelement" method="post">
 									<div class="form-group">
 										<label for="formControlInput1">Nombre</label>
 										<input class="form-control" type="text" id="formControlInput1" name="nombreSub" href="elemento/{{id}}" placeholder="Escribe el nombre"></input>

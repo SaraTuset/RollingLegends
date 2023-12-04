@@ -38,10 +38,10 @@ router.post('/elemento/:id/edited', (req, res) => {
     res.render('saved_post');
 });
 
-/*router.post('/elemento/:id/subelement', (req, res) => {
+router.post('/elemento/:id/subelement', (req, res) => {
     personajeService.addSubElemento(req.body, req.params.id);
     res.render('saved_post');
-});*/
+});
 
 router.get('/elemento/:id/delete', (req, res) => {
 
