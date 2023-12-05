@@ -26,6 +26,23 @@ router.get('/elemento/:id', (req, res) => {
     res.render('pagina_detalle', { elemento });
 });
 
+router.get('/elemento/:id/edit', (req, res) => {
+
+    let elemento = personajeService.getElemento(req.params.id);
+
+    res.render('pagina_editar_elemento', { elemento });
+});
+
+router.post('/elemento/:id/edited', (req, res) => {
+    personajeService.editElemento(req.body, req.params.id);
+    res.render('saved_post');
+});
+
+router.post('/elemento/:id/subelement', (req, res) => {
+    personajeService.addSubElemento(req.body, req.params.id);
+    res.render('saved_post');
+});
+
 router.get('/elemento/:id/delete', (req, res) => {
 
     personajeService.deleteElemento(req.params.id);
