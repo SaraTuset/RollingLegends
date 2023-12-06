@@ -30,38 +30,39 @@
                             <h2 class="section-heading mb-5">
                                 <form role="form" action="/elemento/new" method="post">
                                     <div class="form-group">
-                                        <label for="inputName">Nombre</label>
-                                        <input class="form-control" name="nombre" type="text" id="inputName" placeholder="Escribe nombre">
+                                        <label for="inputName">Nombre:</label>
+                                        <input class="form-control" name="nombre" type="text" id="inputName" placeholder="Escribe nombre" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputImagen">Imagen</label>
-                                        <input class="form-control" name = "imagen" type="url" id="inputImagen" placeholder="Escribe url">
+                                        <label for="inputImagen">Imagen:</label>
+                                        <input class="form-control" name ="imagen" type="url" id="inputImagen" placeholder="Escribe url" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputText">Descripción</label>
-                                        <input class="form-control" name = "descripcion" type="text" id="inputText" placeholder="Escribe descripción">
+                                        <label for="inputText">Descripción:</label>
+                                        <input class="form-control" name ="descripcion" type="text" id="inputText" placeholder="Escribe descripción">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputVida">Puntos de vida</label>
-                                        <input class="form-control" name = "puntosVida" type="number" id="inputVida" placeholder="0">
+                                        <label for="inputVida">Puntos de vida:</label>
+                                        <input class="form-control" name ="puntosVida" type="number" min="1" id="inputVida" placeholder="0" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputAtaque">Ataque</label>
-                                        <input class="form-control" name = "ataque" type="number" id="inputAtaque" placeholder="0">
+                                        <label for="inputAtaque">Ataque:</label>
+                                        <input class="form-control" name = "ataque" type="number" min="1" id="inputAtaque" placeholder="0" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputDefensa">Defensa</label>
-                                        <input class="form-control" name = "defensa" type="number" id="inputDefensa" placeholder="0">
+                                        <label for="inputDefensa">Defensa:</label>
+                                        <input class="form-control" name = "defensa" type="number" min="1" id="inputDefensa" placeholder="0" required>
                                     </div>
                                     <div class="form-group">
-                                        <label>
-                                        <input type="radio" id="inputMasculino1" name="genero" value="masculino" />
+                                        <label>Genero:</label><br>
+                                        <label style="padding-right: 30px;">
+                                        <input type="radio" id="inputMasculino1" name="genero" value="masculino" checked/>
                                         Masculino</label>
-                                        
                                         <label>
                                         <input type="radio" id="inputFemenino" name="genero" value="femenino" />
                                         Femenino</label>
                                     </div>
+                                    <br>
                             <div class="btn-group flex-wrap btn-form">
                                 <button type="submit" class="btn btn-success btn-xl">Guardar</button>
                             </form>

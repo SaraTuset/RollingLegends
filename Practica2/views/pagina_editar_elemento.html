@@ -29,40 +29,40 @@
                             <h2 class="section-heading mb-5">
                                 <form role="form" action="/elemento/{{elemento.id}}/edited" method="post">
                                     <div class="form-group">
-                                        <label for="inputName">Nombre</label>
-                                        <input class="form-control" name="nombre" type="text" id="inputName" href="elemento/{{id}}" value="{{elemento.nombre}}">
+                                        <label for="inputName">Nombre:</label>
+                                        <input class="form-control" name="nombre" type="text" id="inputName" href="elemento/{{id}}" value="{{elemento.nombre}}" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputImagen">Imagen</label>
-                                        <input class="form-control" name = "imagen" type="url" id="inputImagen" href="elemento/{{id}}" value="{{elemento.imagen}}">
+                                        <label for="inputImagen">Imagen:</label>
+                                        <input class="form-control" name = "imagen" type="url" id="inputImagen" href="elemento/{{id}}" value="{{elemento.imagen}}" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputText">Descripción</label>
+                                        <label for="inputText">Descripción:</label>
                                         <input class="form-control" name = "descripcion" type="text" id="inputText" href="elemento/{{id}}" value="{{elemento.descripcion}}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputVida">Puntos de vida</label>
-                                        <input class="form-control" name = "puntosVida" type="number" id="inputVida" href="elemento/{{id}}" value="{{elemento.puntosVida}}">
+                                        <label for="inputVida">Puntos de vida:</label>
+                                        <input class="form-control" name = "puntosVida" type="number" min="1" id="inputVida" href="elemento/{{id}}" value="{{elemento.puntosVida}}" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputAtaque">Ataque</label>
-                                        <input class="form-control" name = "ataque" type="number" id="inputAtaque" href="elemento/{{id}}" value="{{elemento.ataque}}">
+                                        <label for="inputAtaque">Ataque:</label>
+                                        <input class="form-control" name = "ataque" type="number" min="1" id="inputAtaque" href="elemento/{{id}}" value="{{elemento.ataque}}" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputDefensa">Defensa</label>
-                                        <input class="form-control" name = "defensa" type="number" id="inputDefensa" href="elemento/{{id}}" value="{{elemento.defensa}}">
+                                        <label for="inputDefensa">Defensa:</label>
+                                        <input class="form-control" name = "defensa" type="number" min="1" id="inputDefensa" href="elemento/{{id}}" value="{{elemento.defensa}}" required>
                                     </div>
 
                                     <div class="form-group">
-                                        <label>
-                                        <input type="radio" id="inputMasculino1" name="genero" value="masculino" />
+                                        <label>Genero:</label><br>
+                                        <label style="padding-right: 30px;">
+                                        <input type="radio" id="inputMasculino1" name="genero" value="masculino" checked/>
                                         Masculino</label>
-                                        
                                         <label>
                                         <input type="radio" id="inputFemenino" name="genero" value="femenino" />
                                         Femenino</label>
                                     </div>
-                                    
+                                    <br>
                                     <div class="btn-group flex-wrap btn-form">
                                         <button type="submit" class="btn btn-success btn-xl" >Guardar</button>
                                         <button type="button" class="btn btn-danger btn-xl" onclick="window.location.href='/'">Cancelar</a></button>
