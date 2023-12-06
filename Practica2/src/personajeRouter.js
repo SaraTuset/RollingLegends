@@ -14,9 +14,10 @@ router.post('/elemento/new', (req, res) => {
 
     let { nombre, descripcion, puntosVida, ataque, defensa, imagen, genero } = req.body;
 
-    personajeService.addElemento({ nombre, descripcion, puntosVida, ataque, defensa, imagen, genero });
+    let elemento = { nombre, descripcion, puntosVida, ataque, defensa, imagen, genero };
+    personajeService.addElemento(elemento);
 
-    res.render('saved_post');
+    res.render('pagina_detalle', { elemento });
 });
 
 router.get('/elemento/:id', (req, res) => {
@@ -35,19 +36,25 @@ router.get('/elemento/:id/edit', (req, res) => {
 
 router.post('/elemento/:id/edited', (req, res) => {
     personajeService.editElemento(req.body, req.params.id);
-    res.render('saved_post');
+    let elemento = personajeService.getElemento(req.params.id);
+
+    res.render('pagina_detalle', { elemento });
 });
 
 router.post('/elemento/:id/subelement', (req, res) => {
     personajeService.addSubElemento(req.body, req.params.id);
-    res.render('saved_post');
+    let elemento = personajeService.getElemento(req.params.id);
+
+    res.render('pagina_detalle', { elemento });
 });
 
 router.get('/elemento/:id/delete', (req, res) => {
 
     personajeService.deleteElemento(req.params.id);
 
-    res.render('deleted_post');
+    res.render('pagina_principal', { 
+        elementos: personajeService.getElementos() 
+    });
 });
 
 export default router;
