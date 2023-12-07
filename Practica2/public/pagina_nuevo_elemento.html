@@ -31,11 +31,11 @@
                                 <form role="form" action="/elemento/new" method="post">
                                     <div class="form-group">
                                         <label for="inputName">Nombre:</label>
-                                        <input class="form-control" name="nombre" type="text" id="inputName" placeholder="Escribe nombre" required>
+                                        <input class="form-control" name="nombre" type="text" id="inputName" placeholder="Escribe nombre">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputImagen">Imagen:</label>
-                                        <input class="form-control" name ="imagen" type="url" id="inputImagen" placeholder="Escribe url" required>
+                                        <input class="form-control" name ="imagen" type="url" id="inputImagen" placeholder="Escribe url" >
                                     </div>
                                     <div class="form-group">
                                         <label for="inputText">Descripción:</label>
@@ -43,35 +43,32 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputVida">Puntos de vida:</label>
-                                        <input class="form-control" name ="puntosVida" type="number" min="1" id="inputVida" placeholder="0" required>
+                                        <input class="form-control" name ="puntosVida" type="number" min="1" id="inputVida" placeholder="0" >
                                     </div>
                                     <div class="form-group">
                                         <label for="inputAtaque">Ataque:</label>
-                                        <input class="form-control" name = "ataque" type="number" min="1" id="inputAtaque" placeholder="0" required>
+                                        <input class="form-control" name = "ataque" type="number" min="1" id="inputAtaque" placeholder="0" >
                                     </div>
                                     <div class="form-group">
                                         <label for="inputDefensa">Defensa:</label>
-                                        <input class="form-control" name = "defensa" type="number" min="1" id="inputDefensa" placeholder="0" required>
+                                        <input class="form-control" name = "defensa" type="number" min="1" id="inputDefensa" placeholder="0" >
                                     </div>
                                     <div class="form-group">
                                         <label>Genero:</label><br>
                                         <label style="padding-right: 30px;">
-                                        <input type="radio" id="inputMasculino1" name="genero" value="masculino" checked/>
+                                        <input type="radio" id="inputMasculino2" name="genero" value="masculino"/>
                                         Masculino</label>
                                         <label>
-                                        <input type="radio" id="inputFemenino" name="genero" value="femenino" />
+                                        <input type="radio" id="inputFemenino2" name="genero" value="femenino" />
                                         Femenino</label>
                                     </div>
                                     <br>
-                            <div class="btn-group flex-wrap btn-form">
-                                <button type="submit" class="btn btn-success btn-xl">Guardar</button>
+                                    <div class="btn-group flex-wrap btn-form">
+                                        <button type="submit" class="btn btn-success btn-xl">Guardar</button>
+                                        <button type="button" class="btn btn-danger btn-xl"><a href="/"> Cancelar</a></button>
+                                    </div>
                             </form>
-                                
-                                <button class="btn btn-danger btn-xl"><a href="/"> Cancelar</a></button>
-                            </div>
-                                
                             </h2>
-                            
                         </div>
                     </div>
                 </div>
