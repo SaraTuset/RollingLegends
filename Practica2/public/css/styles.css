@@ -12678,8 +12678,8 @@ p {
 }
 
 .btn-xl {
-  font-weight: 700;
-  font-size: 50%;
+  font-weight: 700em;
+  font-size: 100%;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   padding-left: 2rem;
