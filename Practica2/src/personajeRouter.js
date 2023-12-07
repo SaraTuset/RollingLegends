@@ -12,6 +12,10 @@ let defensaEsBlanco = false;
 let generoEsBlanco = false;
 let esBlanco = false;
 
+let esMasculino = false;
+let esFemenino = false;
+let esNinguno = false;
+
 router.get('/', (req, res) => {
 
     res.render('pagina_principal', { 
@@ -25,7 +29,7 @@ router.post('/elemento/new', (req, res) => {
 
     let elemento = { nombre, descripcion, puntosVida, ataque, defensa, imagen, genero };
     personajeService.addElemento(elemento);
-    
+
     if (elemento.nombre === ""){
         nombreEsBlanco = true;
     } else{
@@ -58,6 +62,9 @@ router.post('/elemento/new', (req, res) => {
     }
     if (elemento.genero === undefined){
         generoEsBlanco = true;
+        esNinguno = true;
+        esMasculino = false;
+        esFemenino = false;
     } else{
         generoEsBlanco = false;
     }
@@ -65,6 +72,15 @@ router.post('/elemento/new', (req, res) => {
         esBlanco = true;
     } else{
         esBlanco = false;
+    }
+    if (elemento.genero === "masculino"){
+        esMasculino = true;
+        esFemenino = false;
+        esNinguno = false;
+    } else if (elemento.genero === "femenino"){
+        esFemenino = true;
+        esMasculino = false;
+        esNinguno = false;
     }
     if (esBlanco){
         res.render('pagina_editar_elemento', {
@@ -76,11 +92,14 @@ router.post('/elemento/new', (req, res) => {
             ataqueEsBlanco,
             defensaEsBlanco,
             generoEsBlanco,
-            esBlanco
+            esBlanco,
+            esMasculino,
+            esFemenino,
+            esNinguno
         });
     }
     else{
-        res.render('pagina_nuevo_elemento', { elemento });
+        res.render('pagina_detalle', { elemento });
     }
 });
 
@@ -94,8 +113,20 @@ router.get('/elemento/:id', (req, res) => {
 router.get('/elemento/:id/edit', (req, res) => {
 
     let elemento = personajeService.getElemento(req.params.id);
-
-    res.render('pagina_editar_elemento', { elemento });
+    if (elemento.genero === undefined){
+        esNinguno = true;
+        esMasculino = false;
+        esFemenino = false;
+    } else if (elemento.genero === "masculino"){
+        esMasculino = true;
+        esFemenino = false;
+        esNinguno = false;
+    } else if (elemento.genero === "femenino"){
+        esFemenino = true;
+        esMasculino = false;
+        esNinguno = false;
+    }
+    res.render('pagina_editar_elemento', { elemento, esFemenino, esMasculino, esNinguno});
 });
 
 router.post('/elemento/:id/edited', (req, res) => {
@@ -133,6 +164,9 @@ router.post('/elemento/:id/edited', (req, res) => {
     }
     if (elemento.genero === undefined){
         generoEsBlanco = true;
+        esNinguno = true;
+        esMasculino = false;
+        esFemenino = false;
     } else{
         generoEsBlanco = false;
     }
@@ -140,6 +174,15 @@ router.post('/elemento/:id/edited', (req, res) => {
         esBlanco = true;
     } else{
         esBlanco = false;
+    }
+    if (elemento.genero === "masculino"){
+        esMasculino = true;
+        esFemenino = false;
+        esNinguno = false;
+    } else if (elemento.genero === "femenino"){
+        esFemenino = true;
+        esMasculino = false;
+        esNinguno = false;
     }
     if (esBlanco){
         res.render('pagina_editar_elemento', {
@@ -151,7 +194,10 @@ router.post('/elemento/:id/edited', (req, res) => {
             ataqueEsBlanco,
             defensaEsBlanco,
             generoEsBlanco,
-            esBlanco
+            esBlanco,
+            esFemenino,
+            esMasculino,
+            esNinguno
         });
     }
     else{

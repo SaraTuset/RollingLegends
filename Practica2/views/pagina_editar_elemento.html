@@ -83,10 +83,14 @@
                                     <div class="form-group">
                                         <label>Genero:</label><br>
                                         <label style="padding-right: 30px;">
-                                        <input type="radio" id="inputMasculino" name="genero" value="masculino" />
+                                        {{#esMasculino}}<input type="radio" id="inputMasculino" name="genero" value="masculino" checked/>{{/esMasculino}}
+                                        {{#esFemenino}}<input type="radio" id="inputMasculino" name="genero" value="masculino" />{{/esFemenino}}
+                                        {{#esNinguno}}<input type="radio" id="inputMasculino" name="genero" value="masculino" />{{/esNinguno}}
                                         Masculino</label>
                                         <label>
-                                        <input type="radio" id="inputFemenino" name="genero" value="femenino" />
+                                        {{#esMasculino}}<input type="radio" id="inputFemenino" name="genero" value="femenino" />{{/esMasculino}}
+                                        {{#esFemenino}}<input type="radio" id="inputFemenino" name="genero" value="femenino" checked/>{{/esFemenino}}
+                                        {{#esNinguno}}<input type="radio" id="inputFemenino" name="genero" value="femenino" />{{/esNinguno}}
                                         Femenino</label>
                                     </div>
                                     <br>
