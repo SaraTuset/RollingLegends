@@ -25,10 +25,7 @@ router.get('/', (req, res) => {
 
 router.post('/elemento/new', (req, res) => {
 
-    let { nombre, descripcion, puntosVida, ataque, defensa, imagen, genero } = req.body;
-
     let elemento = { nombre, descripcion, puntosVida, ataque, defensa, imagen, genero };
-    personajeService.addElemento(elemento);
 
     if (elemento.nombre === ""){
         nombreEsBlanco = true;
@@ -99,6 +96,7 @@ router.post('/elemento/new', (req, res) => {
         });
     }
     else{
+        personajeService.addElemento(elemento);
         res.render('pagina_detalle', { elemento });
     }
 });
