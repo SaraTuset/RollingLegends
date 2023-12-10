@@ -16,6 +16,7 @@ let esMasculino = false;
 let esFemenino = false;
 let esNinguno = false;
 
+
 router.get('/', (req, res) => {
 
     res.render('pagina_principal', { 
@@ -28,7 +29,7 @@ router.post('/elemento/new', (req, res) => {
     let { nombre, descripcion, puntosVida, ataque, defensa, imagen, genero } = req.body;
 
     let elemento = { nombre, descripcion, puntosVida, ataque, defensa, imagen, genero };
-    personajeService.addElemento(elemento);
+    
 
     if (elemento.nombre === ""){
         nombreEsBlanco = true;
@@ -99,6 +100,7 @@ router.post('/elemento/new', (req, res) => {
         });
     }
     else{
+        personajeService.addElemento(elemento);
         res.render('pagina_detalle', { elemento });
     }
 });
@@ -130,11 +132,22 @@ router.get('/elemento/:id/edit', (req, res) => {
 });
 
 router.post('/elemento/:id/edited', (req, res) => {
-    personajeService.editElemento(req.body, req.params.id);
-    let elemento = personajeService.getElemento(req.params.id);
+    let { nombre, descripcion, puntosVida, ataque, defensa, imagen, genero } = req.body;
+    let elemento = { nombre, descripcion, puntosVida, ataque, defensa, imagen, genero };
+    if (elemento.genero === "masculino"){
+        esMasculino = true;
+        esFemenino = false;
+        esNinguno = false;
+    } else if (elemento.genero === "femenino"){
+        esFemenino = true;
+        esMasculino = false;
+        esNinguno = false;
+    }
     if (elemento.nombre === ""){
+        console.log('1');
         nombreEsBlanco = true;
     } else{
+        console.log('11');
         nombreEsBlanco = false;
     }
     if (elemento.imagen === ""){
@@ -175,16 +188,9 @@ router.post('/elemento/:id/edited', (req, res) => {
     } else{
         esBlanco = false;
     }
-    if (elemento.genero === "masculino"){
-        esMasculino = true;
-        esFemenino = false;
-        esNinguno = false;
-    } else if (elemento.genero === "femenino"){
-        esFemenino = true;
-        esMasculino = false;
-        esNinguno = false;
-    }
+    
     if (esBlanco){
+        console.log('1');
         res.render('pagina_editar_elemento', {
             elemento,
             nombreEsBlanco,
@@ -201,6 +207,7 @@ router.post('/elemento/:id/edited', (req, res) => {
         });
     }
     else{
+        personajeService.editElemento(req.body, req.params.id);
         res.render('pagina_detalle', { elemento });
     }
 });
