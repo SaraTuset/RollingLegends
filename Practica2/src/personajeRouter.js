@@ -211,6 +211,7 @@ router.post('/elemento/:id/edited', (req, res) => {
     }
     else{
         personajeService.editElemento(req.body, req.params.id);
+        let elemento = personajeService.getElemento(req.params.id);
         res.render('pagina_detalle', { elemento });
     }
 });
