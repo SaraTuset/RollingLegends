@@ -139,7 +139,8 @@ router.get('/elemento/:id/edit', (req, res) => {
 
 router.post('/elemento/:id/edited', (req, res) => {
     let { nombre, descripcion, puntosVida, ataque, defensa, imagen, genero } = req.body;
-    let elemento = { nombre, descripcion, puntosVida, ataque, defensa, imagen, genero };
+    let id = req.params.id;
+    let elemento = { nombre, descripcion, puntosVida, ataque, defensa, imagen, genero, id};
     if (elemento.genero === "masculino"){
         esMasculino = true;
         esFemenino = false;
