@@ -5,7 +5,7 @@ const router = express.Router();
 
 let nombreEsBlanco = false;
 let imagenEsBlanco = false;
-let descipcionEsBlanco = false;
+let descripcionEsBlanco = false;
 let vidaEsBlanco = false;
 let ataqueEsBlanco = false;
 let defensaEsBlanco = false;
@@ -15,6 +15,12 @@ let esBlanco = false;
 let esMasculino = false;
 let esFemenino = false;
 let esNinguno = false;
+
+let nombreSubEsBlanco = false;
+let descripcionSubEsBlanco = false;
+let ataqueSubEsBlanco = false;
+let defensaSubEsBlanco = false;
+let esBlancoSub = false;
 
 
 router.get('/', (req, res) => {
@@ -42,9 +48,9 @@ router.post('/elemento/new', (req, res) => {
         imagenEsBlanco = false;
     }
     if (elemento.descripcion === ""){
-        descipcionEsBlanco = true;
+        descripcionEsBlanco = true;
     } else{
-        descipcionEsBlanco = false;
+        descripcionEsBlanco = false;
     }
     if (elemento.puntosVida === ""){
         vidaEsBlanco = true;
@@ -69,7 +75,7 @@ router.post('/elemento/new', (req, res) => {
     } else{
         generoEsBlanco = false;
     }
-    if (nombreEsBlanco || imagenEsBlanco || descipcionEsBlanco || vidaEsBlanco || ataqueEsBlanco || defensaEsBlanco || generoEsBlanco){
+    if (nombreEsBlanco || imagenEsBlanco || descripcionEsBlanco || vidaEsBlanco || ataqueEsBlanco || defensaEsBlanco || generoEsBlanco){
         esBlanco = true;
     } else{
         esBlanco = false;
@@ -84,11 +90,11 @@ router.post('/elemento/new', (req, res) => {
         esNinguno = false;
     }
     if (esBlanco){
-        res.render('pagina_editar_elemento', {
+        res.render('pagina_nuevo_elemento_vacio', {
             elemento,
             nombreEsBlanco,
             imagenEsBlanco,
-            descipcionEsBlanco,
+            descripcionEsBlanco,
             vidaEsBlanco,
             ataqueEsBlanco,
             defensaEsBlanco,
@@ -144,10 +150,8 @@ router.post('/elemento/:id/edited', (req, res) => {
         esNinguno = false;
     }
     if (elemento.nombre === ""){
-        console.log('1');
         nombreEsBlanco = true;
     } else{
-        console.log('11');
         nombreEsBlanco = false;
     }
     if (elemento.imagen === ""){
@@ -156,9 +160,9 @@ router.post('/elemento/:id/edited', (req, res) => {
         imagenEsBlanco = false;
     }
     if (elemento.descripcion === ""){
-        descipcionEsBlanco = true;
+        descripcionEsBlanco = true;
     } else{
-        descipcionEsBlanco = false;
+        descripcionEsBlanco = false;
     }
     if (elemento.puntosVida === ""){
         vidaEsBlanco = true;
@@ -183,19 +187,18 @@ router.post('/elemento/:id/edited', (req, res) => {
     } else{
         generoEsBlanco = false;
     }
-    if (nombreEsBlanco || imagenEsBlanco || descipcionEsBlanco || vidaEsBlanco || ataqueEsBlanco || defensaEsBlanco || generoEsBlanco){
+    if (nombreEsBlanco || imagenEsBlanco || descripcionEsBlanco || vidaEsBlanco || ataqueEsBlanco || defensaEsBlanco || generoEsBlanco){
         esBlanco = true;
     } else{
         esBlanco = false;
     }
     
     if (esBlanco){
-        console.log('1');
         res.render('pagina_editar_elemento', {
             elemento,
             nombreEsBlanco,
             imagenEsBlanco,
-            descipcionEsBlanco,
+            descripcionEsBlanco,
             vidaEsBlanco,
             ataqueEsBlanco,
             defensaEsBlanco,
@@ -213,10 +216,52 @@ router.post('/elemento/:id/edited', (req, res) => {
 });
 
 router.post('/elemento/:id/subelement', (req, res) => {
-    personajeService.addSubElemento(req.body, req.params.id);
     let elemento = personajeService.getElemento(req.params.id);
 
-    res.render('pagina_detalle', { elemento });
+    let { nombreSub, descripcionSub, ataqueSub, defensaSub} = req.body;
+    let subelemento = { nombreSub, descripcionSub, ataqueSub, defensaSub};
+    
+
+    if (subelemento.nombreSub === ""){
+        nombreSubEsBlanco = true;
+    } else{
+        nombreSubEsBlanco = false;
+    }
+    if (subelemento.descripcionSub === ""){
+        descripcionSubEsBlanco = true;
+    } else{
+        descripcionSubEsBlanco = false;
+    }
+    if (subelemento.ataqueSub === ""){
+        ataqueSubEsBlanco = true;
+    } else{
+        ataqueSubEsBlanco = false;
+    }
+    if (subelemento.defensaSub === ""){
+        defensaSubEsBlanco = true;
+    } else{
+        defensaSubEsBlanco = false;
+    }
+    if (nombreSubEsBlanco || descripcionSubEsBlanco || ataqueSubEsBlanco || defensaSubEsBlanco){
+        esBlancoSub = true;
+    } else{
+        esBlancoSub = false;
+    }
+    if (esBlancoSub){
+        res.render('pagina_detalle', {
+            elemento,
+            subelemento,
+            nombreSubEsBlanco,
+            descripcionSubEsBlanco,
+            ataqueSubEsBlanco,
+            defensaSubEsBlanco,
+            esBlancoSub,
+        });
+    }
+    else{
+        personajeService.addSubElemento(req.body, req.params.id);
+        res.render('pagina_detalle', { elemento });
+    }
 });
 
 router.get('/elemento/:id/delete', (req, res) => {

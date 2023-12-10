@@ -74,7 +74,6 @@
                 </div>
             </div>
         </section>
-        <!--
         {{#esBlancoSub}}
         <section class="page-section cta">
             <div class="container">
@@ -85,10 +84,10 @@
                                 <div class="error-summary">
                                     <p class="mb-3">Por favor, corrija los siguientes errores:</p>
                                     <ul>
-                                        {{#nombreSubEsBlanco}}<li class="mb-3">Nombre en blanco.</li>{{/nombreEsBlanco}}
-                                        {{#descipcionSubEsBlanco}}<li class="mb-3">Descripción en blanco.</li>{{/descipcionEsBlanco}}
-                                        {{#ataqueAdEsBlanco}}<li class="mb-3">Ataque en blanco.</li>{{/ataqueEsBlanco}}
-                                        {{#defensaAdEsBlanco}}<li class="mb-3">Defensa en blanco.</li>{{/defensaEsBlanco}}
+                                        {{#nombreSubEsBlanco}}<li class="mb-3">Nombre en blanco.</li>{{/nombreSubEsBlanco}}
+                                        {{#descripcionSubEsBlanco}}<li class="mb-3">Descripción en blanco.</li>{{/descripcionSubEsBlanco}}
+                                        {{#ataqueSubEsBlanco}}<li class="mb-3">Ataque adicional en blanco.</li>{{/ataqueSubEsBlanco}}
+                                        {{#defensaSubEsBlanco}}<li class="mb-3">Defensa adicional en blanco.</li>{{/defensaSubEsBlanco}}
                                     </ul>
                                   </div>
                             </h2>
@@ -98,7 +97,6 @@
             </div>
         </section>
         {{/esBlancoSub}}
-        -->
 		<section class="page-section cta">
             <div class="container">
                 <div class="row">
@@ -108,20 +106,21 @@
 								<form role="form" action="/elemento/{{elemento.id}}/subelement" method="post">
 									<div class="form-group">
 										<label for="formControlInput1">Nombre</label>
-										<input class="form-control" type="text" id="formControlInput1" name="nombreSub" href="elemento/{{id}}" placeholder="Escribe el nombre"></input>
+										<input class="form-control" type="text" id="formControlInput1" name="nombreSub" href="elemento/{{id}}" placeholder="Escribe el nombre" value="{{subelemento.nombreSub}}"></input>
 									</div>
 									<div class="form-group">
 										<label for="formControlInput2">Descripción</label>
-										<input class="form-control" type="text" id="formControlInput2" name="descripcionSub" href="elemento/{{id}}" placeholder="Escribe la descripción"></input>
+										<input class="form-control" type="text" id="formControlInput2" name="descripcionSub" href="elemento/{{id}}" placeholder="Escribe la descripción" value="{{subelemento.descripcionSub}}"></input>
 									</div>
 									<div class="form-group">
 										<label for="formControlInput3">Ataque adicional</label>
-										<input class="form-control" type="number" id="formControlInput3" name="ataqueSub" href="elemento/{{id}}" placeholder="Escribe el ataque"></input>
+										<input class="form-control" type="number" id="formControlInput3" name="ataqueSub" href="elemento/{{id}}" placeholder="Escribe el ataque" value="{{subelemento.ataqueSub}}"></input>
 									</div>
 									<div class="form-group">
 										<label for="formControlInput4">Defensa adicional</label>
-										<input class="form-control" type="number" id="formControlInput4" name="defensaSub" href="elemento/{{id}}" placeholder="Escribe la defensa"></input>
+										<input class="form-control" type="number" id="formControlInput4" name="defensaSub" href="elemento/{{id}}" placeholder="Escribe la defensa" value="{{subelemento.defensaSub}}"></input>
 									</div>
+                                    <br>
                                     <button type="submit" class="btn btn-success btn-xl">Guardar objeto</button>
 								</form>
                             </h2>
