@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>RollingLegends-Nuevo Elemento</title>
+        <link rel="icon" type="image/x-icon" href="http://drive.google.com/uc?export=view&id=1PtShRX8pPw1AYwY_3N3_XvTxgcaWJuHq" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/form.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">RollingLegends</span>
+                <span class="site-heading-lower">Nuevo elemento</span>
+            </h1>
+        </header>
+
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                            <h2 class="section-heading mb-5">
+                                <form role="form" action="/elemento/new" method="post">
+                                    <div class="form-group">
+                                        <label for="inputName">Nombre:</label>
+                                        <input class="form-control" name="nombre" type="text" id="inputName" placeholder="Escribe nombre">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputImagen">Imagen:</label>
+                                        <input class="form-control" name ="imagen" type="url" id="inputImagen" placeholder="Escribe url" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputText">Descripción:</label>
+                                        <input class="form-control" name ="descripcion" type="text" id="inputText" placeholder="Escribe descripción">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputVida">Puntos de vida:</label>
+                                        <input class="form-control" name ="puntosVida" type="number" min="1" id="inputVida" placeholder="0" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputAtaque">Ataque:</label>
+                                        <input class="form-control" name = "ataque" type="number" min="1" id="inputAtaque" placeholder="0" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputDefensa">Defensa:</label>
+                                        <input class="form-control" name = "defensa" type="number" min="1" id="inputDefensa" placeholder="0" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Genero:</label><br>
+                                        <label style="padding-right: 30px;">
+                                        <input type="radio" id="inputMasculino2" name="genero" value="masculino"/>
+                                        Masculino</label>
+                                        <label>
+                                        <input type="radio" id="inputFemenino2" name="genero" value="femenino" />
+                                        Femenino</label>
+                                    </div>
+                                    <br>
+                                    <div class="btn-group flex-wrap btn-form">
+                                        <button type="submit" class="btn btn-success btn-xl">Guardar</button>
+                                        <button type="button" class="btn btn-danger btn-xl"><a href="/"> Cancelar</a></button>
+                                    </div>
+                            </form>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>RollingLegends</title>
+        <link rel="icon" type="image/x-icon" href="http://drive.google.com/uc?export=view&id=1PtShRX8pPw1AYwY_3N3_XvTxgcaWJuHq" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">RollingLegends</span>
+                <span class="site-heading-lower">Editar elemento</span>
+            </h1>
+        </header>
+
+        {{#esBlanco}}
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                            <h2 class="section-heading mb-5">
+                                <div class="error-summary">
+                                    <p class="mb-3">Por favor, corrija los siguientes errores:</p>
+                                    <ul>
+                                        {{#nombreEsBlanco}}<li class="mb-3">Nombre en blanco.</li>{{/nombreEsBlanco}}
+                                        {{#imagenEsBlanco}}<li class="mb-3">Imagen en blanco.</li>{{/imagenEsBlanco}}
+                                        {{#descripcionEsBlanco}}<li class="mb-3">Descripción en blanco.</li>{{/descripcionEsBlanco}}
+                                        {{#vidaEsBlanco}}<li class="mb-3">Puntos de vida en blanco.</li>{{/vidaEsBlanco}}
+                                        {{#ataqueEsBlanco}}<li class="mb-3">Ataque en blanco.</li>{{/ataqueEsBlanco}}
+                                        {{#defensaEsBlanco}}<li class="mb-3">Defensa en blanco.</li>{{/defensaEsBlanco}}
+                                        {{#generoEsBlanco}}<li class="mb-3">Género en blanco.</li>{{/generoEsBlanco}}
+                                    </ul>
+                                  </div>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{/esBlanco}}
+
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                            <h2 class="section-heading mb-5">
+                                <form role="form" action="/elemento/{{elemento.id}}/edited" method="post">
+                                    <div class="form-group">
+                                        <label for="inputName">Nombre:</label>
+                                        <input class="form-control" name="nombre" type="text" id="inputName" href="elemento/{{id}}" value="{{elemento.nombre}}" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputImagen">Imagen:</label>
+                                        <input class="form-control" name = "imagen" type="url" id="inputImagen" href="elemento/{{id}}" value="{{elemento.imagen}}" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputText">Descripción:</label>
+                                        <input class="form-control" name = "descripcion" type="text" id="inputText" href="elemento/{{id}}" value="{{elemento.descripcion}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputVida">Puntos de vida:</label>
+                                        <input class="form-control" name = "puntosVida" type="number" min="1" id="inputVida" href="elemento/{{id}}" value="{{elemento.puntosVida}}" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputAtaque">Ataque:</label>
+                                        <input class="form-control" name = "ataque" type="number" min="1" id="inputAtaque" href="elemento/{{id}}" value="{{elemento.ataque}}" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputDefensa">Defensa:</label>
+                                        <input class="form-control" name = "defensa" type="number" min="1" id="inputDefensa" href="elemento/{{id}}" value="{{elemento.defensa}}" >
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Genero:</label><br>
+                                        <label style="padding-right: 30px;">
+                                        {{#esMasculino}}<input type="radio" id="inputMasculino" name="genero" value="masculino" checked/>{{/esMasculino}}
+                                        {{#esFemenino}}<input type="radio" id="inputMasculino" name="genero" value="masculino" />{{/esFemenino}}
+                                        {{#esNinguno}}<input type="radio" id="inputMasculino" name="genero" value="masculino" />{{/esNinguno}}
+                                        Masculino</label>
+                                        <label>
+                                        {{#esMasculino}}<input type="radio" id="inputFemenino" name="genero" value="femenino" />{{/esMasculino}}
+                                        {{#esFemenino}}<input type="radio" id="inputFemenino" name="genero" value="femenino" checked/>{{/esFemenino}}
+                                        {{#esNinguno}}<input type="radio" id="inputFemenino" name="genero" value="femenino" />{{/esNinguno}}
+                                        Femenino</label>
+                                    </div>
+                                    <br>
+                                    <div class="btn-group flex-wrap btn-form">
+                                        <button type="submit" class="btn btn-success btn-xl" >Guardar</button>
+                                        <button type="button" class="btn btn-danger btn-xl" onclick="window.location.href='/'">Cancelar</a></button>
+                                    </div>
+                                </form>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>

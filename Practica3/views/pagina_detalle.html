@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>RollingLegends</title>
+        <link rel="icon" type="image/x-icon" href="http://drive.google.com/uc?export=view&id=1PtShRX8pPw1AYwY_3N3_XvTxgcaWJuHq" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">RollingLegends</span>
+                <span class="site-heading-lower">Detalles del personaje</span>
+            </h1>
+        </header>
+
+        <section class="page-section clearfix">
+            <div class="container">
+                <div class="row">
+                <div class="intro">
+                    <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{elemento.imagen}}" alt="..." />
+                    <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                        <h2 class="section-heading mb-4">
+                            <span class="section-heading-lower" href="elemento/{{id}}">Nombre: {{elemento.nombre}}</span>
+                        </h2>
+                        <p class="mb-3" href="elemento/{{id}}">Descripción: {{elemento.descripcion}}</p>
+						<p class="mb-3" href="elemento/{{id}}">Puntos de vida: {{elemento.puntosVida}}</p>
+						<p class="mb-3" href="elemento/{{id}}">Ataque: {{elemento.ataque}}</p>
+						<p class="mb-3" href="elemento/{{id}}">Defensa: {{elemento.defensa}}</p>
+                        <p class="mb-3" href="elemento/{{id}}">Genero: {{elemento.genero}}</p>
+                        <div class="btn-toolbar">
+                        <div class="d-grid gap-2">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary btn-xl" onclick="window.location.href='/elemento/{{elemento.id}}/edit'">Editar atributos</button>
+                            <button type="button" class="btn btn-danger btn-xl" onclick="window.location.href='/elemento/{{elemento.id}}/delete'">Borrar personaje</button>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary btn-xl" onclick="window.location.href='/'">Ir al menú de personajes</button>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+		<section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                            <h2 class="section-heading mb-4">                           
+                                <span class="section-heading-lower">Objetos equipados:</span>
+                            </h2>
+                            {{#elemento.subelementos}}
+                            <h2 class="section-heading mb-4" href="elemento/{{id}}"><span class="section-heading-upper">Nombre: {{nombreSub}}</span></h2>
+                            <p class="mb-3" href="elemento/{{id}}">Descripción: {{descripcionSub}}</p>
+                            <p class="mb-3" href="elemento/{{id}}">Ataque adicional: {{ataqueSub}}</p>
+                            <p class="mb-3" href="elemento/{{id}}">Defensa adicional: {{defensaSub}}</p>
+                            {{/elemento.subelementos}}
+                            {{^elemento.subelementos}}
+                            <p class="mb-3">No hay objetos equipados</p>
+                            {{/elemento.subelementos}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{#esBlancoSub}}
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                            <h2 class="section-heading mb-5">
+                                <div class="error-summary">
+                                    <p class="mb-3">Por favor, corrija los siguientes errores:</p>
+                                    <ul>
+                                        {{#nombreSubEsBlanco}}<li class="mb-3">Nombre en blanco.</li>{{/nombreSubEsBlanco}}
+                                        {{#descripcionSubEsBlanco}}<li class="mb-3">Descripción en blanco.</li>{{/descripcionSubEsBlanco}}
+                                        {{#ataqueSubEsBlanco}}<li class="mb-3">Ataque adicional en blanco.</li>{{/ataqueSubEsBlanco}}
+                                        {{#defensaSubEsBlanco}}<li class="mb-3">Defensa adicional en blanco.</li>{{/defensaSubEsBlanco}}
+                                    </ul>
+                                  </div>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{/esBlancoSub}}
+		<section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                            <h2 class="section-heading mb-4">
+								<form role="form" action="/elemento/{{elemento.id}}/subelement" method="post">
+									<div class="form-group">
+										<label for="formControlInput1">Nombre</label>
+										<input class="form-control" type="text" id="formControlInput1" name="nombreSub" href="elemento/{{id}}" placeholder="Escribe el nombre" value="{{subelemento.nombreSub}}"></input>
+									</div>
+									<div class="form-group">
+										<label for="formControlInput2">Descripción</label>
+										<input class="form-control" type="text" id="formControlInput2" name="descripcionSub" href="elemento/{{id}}" placeholder="Escribe la descripción" value="{{subelemento.descripcionSub}}"></input>
+									</div>
+									<div class="form-group">
+										<label for="formControlInput3">Ataque adicional</label>
+										<input class="form-control" type="number" id="formControlInput3" name="ataqueSub" href="elemento/{{id}}" placeholder="Escribe el ataque" value="{{subelemento.ataqueSub}}"></input>
+									</div>
+									<div class="form-group">
+										<label for="formControlInput4">Defensa adicional</label>
+										<input class="form-control" type="number" id="formControlInput4" name="defensaSub" href="elemento/{{id}}" placeholder="Escribe la defensa" value="{{subelemento.defensaSub}}"></input>
+									</div>
+                                    <br>
+                                    <button type="submit" class="btn btn-success btn-xl">Guardar objeto</button>
+								</form>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		<!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
