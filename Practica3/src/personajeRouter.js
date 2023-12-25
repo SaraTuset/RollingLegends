@@ -25,8 +25,22 @@ let esBlancoSub = false;
 
 router.get('/', (req, res) => {
 
+    const elementos = personajeService.getPersonajes(0,4);
+
     res.render('pagina_principal', { 
-        elementos: personajeService.getElementos() 
+        elementos: elementos
+    });
+});
+
+router.get('/personajes', (req, res) => {
+
+    const from = parseInt(req.query.from);
+    const to = parseInt(req.query.to);
+
+    const elementos = personajeService.getPersonajes(from,to);
+
+    res.render('personajes', {
+        elementos: elementos
     });
 });
 

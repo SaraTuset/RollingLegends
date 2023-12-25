@@ -58,3 +58,12 @@ export function getElementos(){
 export function getElemento(id){
     return elementos.get(id);
 }
+
+export function getPersonajes(from, to) {
+    let values = [...elementos.values()];
+    if (from !== undefined) {
+        return values.slice(from, to);
+    } else {
+        return values;
+    }
+}
