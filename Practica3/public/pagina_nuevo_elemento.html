@@ -26,51 +26,33 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-9 mx-auto">
-                        <div class="cta-inner bg-faded text-center rounded">
+                        <div class="cta-inner bg-faded text-center rounded" data-mdb-input-init>
                             <h2 class="section-heading mb-5">
                                 <form role="form" action="/elemento/new" method="post">
                                     <div class="form-group">
                                         <label for="inputName">Nombre:</label>
-                                        <input class="form-control" name="nombre" type="text" id="inputName" placeholder="Escribe nombre" required>
-                                        <div class="invalid-feedback">
-                                            Please choose a username.
-                                        </div>
+                                        <input class="form-control" name="nombre" type="text" id="inputName" placeholder="Escribe nombre" required pattern="[A-Z]">
                                     </div>
                                     
                                     <div class="form-group">
                                         <label for="inputImagen">Imagen:</label>
                                         <input class="form-control" name ="imagen" type="url" id="inputImagen" placeholder="Escribe url" required>
-                                        <div class="invalid-feedback">
-                                            Please choose a username.
-                                          </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputText">Descripción:</label>
-                                        <input class="form-control" name ="descripcion" type="text" id="inputText" placeholder="Escribe descripción" required>
-                                        <div class="invalid-feedback">
-                                            Please choose a username.
-                                          </div>
+                                        <input class="form-control" name ="descripcion" type="text" id="inputText" placeholder="Escribe descripción" required  minlength="50"  maxlength="500">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputVida">Puntos de vida:</label>
                                         <input class="form-control" name ="puntosVida" type="number" min="1" id="inputVida" placeholder="0" required>
-                                        <div class="invalid-feedback">
-                                            Please choose a username.
-                                          </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputAtaque">Ataque:</label>
                                         <input class="form-control" name = "ataque" type="number" min="1" id="inputAtaque" placeholder="0" required>
-                                        <div class="invalid-feedback">
-                                            Please choose a username.
-                                          </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputDefensa">Defensa:</label>
                                         <input class="form-control" name = "defensa" type="number" min="1" id="inputDefensa" placeholder="0" required>
-                                        <div class="invalid-feedback">
-                                            Please choose a username.
-                                          </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Genero:</label><br>
@@ -80,13 +62,10 @@
                                         <label>
                                         <input type="radio" id="inputFemenino2" name="genero" value="femenino" />
                                         Femenino</label>
-                                        <div class="invalid-feedback">
-                                            Please choose a username.
-                                          </div>
                                     </div>
                                     <br>
                                     <div class="btn-group flex-wrap btn-form">
-                                        <button type="submit" class="btn btn-success btn-xl" data-mdb-ripple-init>Guardar</button>
+                                        <button type="submit" class="btn btn-success btn-xl">Guardar</button>
                                         <button type="button" class="btn btn-danger btn-xl"><a href="/"> Cancelar</a></button>
                                     </div>
                             </form>
