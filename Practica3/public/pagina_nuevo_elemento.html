@@ -26,7 +26,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-9 mx-auto">
-                        <div class="cta-inner bg-faded text-center rounded" data-mdb-input-init>
+                        <div class="cta-inner bg-faded text-center rounded">
                             <h2 class="section-heading mb-5">
                                 <form role="form" action="/elemento/new" method="post">
                                     <div class="form-group">
@@ -44,15 +44,15 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputVida">Puntos de vida:</label>
-                                        <input class="form-control" name ="puntosVida" type="number" min="1" id="inputVida" placeholder="0" required>
+                                        <input class="form-control" name ="puntosVida" type="number" min="1" id="inputVida" placeholder="0" required min="0">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputAtaque">Ataque:</label>
-                                        <input class="form-control" name = "ataque" type="number" min="1" id="inputAtaque" placeholder="0" required>
+                                        <input class="form-control" name = "ataque" type="number" min="1" id="inputAtaque" placeholder="0" required min="0">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputDefensa">Defensa:</label>
-                                        <input class="form-control" name = "defensa" type="number" min="1" id="inputDefensa" placeholder="0" required>
+                                        <input class="form-control" name = "defensa" type="number" min="1" id="inputDefensa" placeholder="0" required min="0">
                                     </div>
                                     <div class="form-group">
                                         <label>Genero:</label><br>

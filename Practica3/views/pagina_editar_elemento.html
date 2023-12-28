@@ -57,33 +57,33 @@
                                 <form role="form" action="/elemento/{{elemento.id}}/edited" method="post">
                                     <div class="form-group">
                                         <label for="inputName">Nombre:</label>
-                                        <input class="form-control" name="nombre" type="text" id="inputName" href="elemento/{{id}}" value="{{elemento.nombre}}" >
+                                        <input class="form-control" name="nombre" type="text" id="inputName" href="elemento/{{id}}" value="{{elemento.nombre}}" required pattern="[A-Z]">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputImagen">Imagen:</label>
-                                        <input class="form-control" name = "imagen" type="url" id="inputImagen" href="elemento/{{id}}" value="{{elemento.imagen}}" >
+                                        <input class="form-control" name = "imagen" type="url" id="inputImagen" href="elemento/{{id}}" value="{{elemento.imagen}}" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputText">Descripción:</label>
-                                        <input class="form-control" name = "descripcion" type="text" id="inputText" href="elemento/{{id}}" value="{{elemento.descripcion}}">
+                                        <input class="form-control" name = "descripcion" type="text" id="inputText" href="elemento/{{id}}" value="{{elemento.descripcion}}" required  minlength="50"  maxlength="500">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputVida">Puntos de vida:</label>
-                                        <input class="form-control" name = "puntosVida" type="number" min="1" id="inputVida" href="elemento/{{id}}" value="{{elemento.puntosVida}}" >
+                                        <input class="form-control" name = "puntosVida" type="number" min="1" id="inputVida" href="elemento/{{id}}" value="{{elemento.puntosVida}}" required min="0">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputAtaque">Ataque:</label>
-                                        <input class="form-control" name = "ataque" type="number" min="1" id="inputAtaque" href="elemento/{{id}}" value="{{elemento.ataque}}" >
+                                        <input class="form-control" name = "ataque" type="number" min="1" id="inputAtaque" href="elemento/{{id}}" value="{{elemento.ataque}}" required min="0">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputDefensa">Defensa:</label>
-                                        <input class="form-control" name = "defensa" type="number" min="1" id="inputDefensa" href="elemento/{{id}}" value="{{elemento.defensa}}" >
+                                        <input class="form-control" name = "defensa" type="number" min="1" id="inputDefensa" href="elemento/{{id}}" value="{{elemento.defensa}}" required min="0">
                                     </div>
 
                                     <div class="form-group">
                                         <label>Genero:</label><br>
                                         <label style="padding-right: 30px;">
-                                        {{#esMasculino}}<input type="radio" id="inputMasculino" name="genero" value="masculino" checked/>{{/esMasculino}}
+                                        {{#esMasculino}}<input type="radio" id="inputMasculino" name="genero" value="masculino" checked required/>{{/esMasculino}}
                                         {{#esFemenino}}<input type="radio" id="inputMasculino" name="genero" value="masculino" />{{/esFemenino}}
                                         {{#esNinguno}}<input type="radio" id="inputMasculino" name="genero" value="masculino" />{{/esNinguno}}
                                         Masculino</label>
