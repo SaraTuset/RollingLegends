@@ -1,7 +1,7 @@
 const elementos = new Map();
 let nextId = 0;
 
-addElemento({ nombre: "Drurak", descripcion: "Drurak solía ser el dueño de una pequeña taberna en uno de los muchos barrios olvidados del reino de Yuwivia. Cuando empezó la guerra, su taverna fue calcinada junto con sus seres queridos. Ahora lucha con sus viejas armas para vengar a aquellos que perdieron su vida por culpa de esta injusta guerra", puntosVida: "50", ataque: "25", defensa: "25", imagen: "http://drive.google.com/uc?export=view&id=1m5AFh_qqn_h2-npItcQjbqJQRaHR0AsO", genero: "masculino", subelementos: [{nombreSub: "Hacha Antigua", descripcionSub: "Hacha usada por los enanos del reino de Yuwivia", ataqueSub: "10", defensaSub: "0"}, {nombreSub: "Escudo Espumoso", descripcionSub: "Escudo usada por los enanos del reino de Yuwivia, aunque este a sido modificado por Drurak para portar la imagen de una cerveza", ataqueSub: "0", defensaSub: "10"}] });
+addElemento({ nombre: "Drurak", descripcion: "Drurak solía ser el dueño de una pequeña taberna en uno de los muchos barrios olvidados del reino de Yuwivia. Cuando empezó la guerra, su taverna fue calcinada junto con sus seres queridos. Ahora lucha con sus viejas armas para vengar a aquellos que perdieron su vida por culpa de esta injusta guerra", puntosVida: "50", ataque: "25", defensa: "25", imagen: "http://drive.google.com/uc?export=view&id=1m5AFh_qqn_h2-npItcQjbqJQRaHR0AsO", genero: "masculino", subelementos: [{ nombreSub: "Hacha Antigua", descripcionSub: "Hacha usada por los enanos del reino de Yuwivia", ataqueSub: "10", defensaSub: "0" }, { nombreSub: "Escudo Espumoso", descripcionSub: "Escudo usada por los enanos del reino de Yuwivia, aunque este a sido modificado por Drurak para portar la imagen de una cerveza", ataqueSub: "0", defensaSub: "10" }] });
 
 addElemento({ nombre: "Umbrícora", descripcion: "Teme al Aullador de la Penumbra, un monstruo con garras curvadas como cuchillas que rasgan la oscuridad, dientes afilados como sombras en la medianoche y orejas largas que captan susurros en el viento. Su pelaje oscuro se mezcla con las sombras, camuflándolo en la penumbra mientras acecha con astucia. Cuando sus orejas se erizan, un aullido estremecedor corta la noche, anunciando su presencia en la frontera entre el miedo y lo desconocido.", puntosVida: "5000", ataque: "2500", defensa: "2500", imagen: "http://drive.google.com/uc?export=view&id=1Mbu_mSivjzEhb2vxT2-Ai1mOGGGb2BV7", genero: "masculino" });
 
@@ -47,15 +47,15 @@ export function addSubElemento(nuevoSubelemento, id) {
 }
 
 
-export function deleteElemento(id){
+export function deleteElemento(id) {
     elementos.delete(id);
 }
 
-export function getElementos(){
+export function getElementos() {
     return [...elementos.values()];
 }
 
-export function getElemento(id){
+export function getElemento(id) {
     return elementos.get(id);
 }
 
@@ -63,6 +63,18 @@ export function getPersonajes(from, to) {
     let values = [...elementos.values()];
     if (from !== undefined) {
         return values.slice(from, to);
+    } else {
+        return values;
+    }
+}
+
+export function getPersonaje(nombreB) {
+    let values = [...elementos.values()];
+    if (nombreB !== undefined) {
+        for (let [key, value] of elementos.entries()) {
+            if (value === nombreB)
+                return getElemento(key);
+        }
     } else {
         return values;
     }

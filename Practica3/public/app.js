@@ -2,15 +2,15 @@ const NUM_RESULTS = 4;
 
 let loadMoreRequests = 0;
 
-async function loadMore(){
+async function loadMore() {
 
-    const from = (loadMoreRequests+1) * NUM_RESULTS;
+    const from = (loadMoreRequests + 1) * NUM_RESULTS;
     const to = from + NUM_RESULTS;
 
     const response = await fetch(`/personajes?from=${from}&to=${to}`);
 
     const newPersonajes = await response.text();
-  
+
     const personajesDiv = document.getElementById("elementos");
 
     personajesDiv.innerHTML += newPersonajes;
@@ -19,7 +19,7 @@ async function loadMore(){
 }
 
 function showGeneros(BotonFiltro, BotonMasculino, BotonFemenino, BotonVolver) {
-    let IDBotonFiltro= document.getElementById(BotonFiltro);
+    let IDBotonFiltro = document.getElementById(BotonFiltro);
     let IDBotonMasculino = document.getElementById(BotonMasculino);
     let IDBotonFemenino = document.getElementById(BotonFemenino);
     let IDBotonVolver = document.getElementById(BotonVolver);
@@ -29,7 +29,7 @@ function showGeneros(BotonFiltro, BotonMasculino, BotonFemenino, BotonVolver) {
         IDBotonFemenino.style.display = "block";
         IDBotonVolver.style.display = "block";
         IDBotonFiltro.style.display = "none";
-    }   else {
+    } else {
         IDBotonMasculino.style.display = "none";
         IDBotonFemenino.style.display = "none";
         IDBotonVolver.style.display = "none";
@@ -84,6 +84,26 @@ function filtrarNinguno() {
     for (let elemento of elementosF) {
         if (elemento.classList.contains(generoF)) {
             elemento.style.display = "block";
+        }
+    }
+}
+
+
+function buscador() {
+
+    let input = document.getElementById('buscador').value;
+    let lista = document.getElementsByClassName('element');
+    let lista2 = document.getElementById('elementos').getElementsByTagName('p');
+
+    for (i = 0; i < lista.length; i++) {
+        console.log(lista2[i].innerHTML);
+        if (!lista2[i].innerHTML.toLowerCase().includes(input)) {
+            lista[i].style.display = "none";
+            lista[i].style.position = "absolute";
+        }
+        else {
+            lista[i].style.display = "block";
+            lista[i].style.position = "static";
         }
     }
 }

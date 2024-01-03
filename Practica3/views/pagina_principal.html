@@ -7,7 +7,8 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>RollingLegends</title>
-    <link rel="icon" type="image/x-icon" href="http://drive.google.com/uc?export=view&id=1PtShRX8pPw1AYwY_3N3_XvTxgcaWJuHq" />
+    <link rel="icon" type="image/x-icon"
+        href="http://drive.google.com/uc?export=view&id=1PtShRX8pPw1AYwY_3N3_XvTxgcaWJuHq" />
     <!-- Google fonts-->
     <link
         href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
@@ -28,13 +29,26 @@
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
         <div class="container">
             <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">Start Bootstrap</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" id="BotonFiltrar" onclick="showGeneros('BotonFiltrar','BotonMasculino', 'BotonFemenino', 'BotonVolver')">Filtrar por género</a></li>
-                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" id="BotonMasculino" style="display: none" onclick="filtrarMasculino()">Masculino</a></li>
-                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" id="BotonFemenino" style="display: none" onclick="filtrarFemenino()">Femenino</a></li>
-                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" id="BotonVolver" style="display: none" onclick="showGeneros('BotonFiltrar','BotonMasculino', 'BotonFemenino', 'BotonVolver'); filtrarNinguno()">Volver</a></li>
+                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" id="BotonFiltrar"
+                            onclick="showGeneros('BotonFiltrar','BotonMasculino', 'BotonFemenino', 'BotonVolver')">Filtrar
+                            por género</a></li>
+                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" id="BotonMasculino"
+                            style="display: none" onclick="filtrarMasculino()">Masculino</a></li>
+                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" id="BotonFemenino"
+                            style="display: none" onclick="filtrarFemenino()">Femenino</a></li>
+                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" id="BotonVolver"
+                            style="display: none"
+                            onclick="showGeneros('BotonFiltrar','BotonMasculino', 'BotonFemenino', 'BotonVolver'); filtrarNinguno()">Volver</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <input id="buscador" onkeyup="buscador()" type="text" name="search"
+                            placeholder="Buscar..">
+                    </li>
                 </ul>
             </div>
         </div>
@@ -46,7 +60,7 @@
                     <div class="intro-ext left-0 text-center bg-faded p-5 rounded">
                         <div class="elementos" id="elementos">
                             {{#elementos}}
-                            <a href="/elemento/{{id}}" class="{{genero}}">
+                            <a href="/elemento/{{id}}" class="element {{genero}}">
                                 <div class="elemento">
                                     <p>{{nombre}}</p>
                                 </div>
@@ -55,13 +69,13 @@
                         </div>
 
                         </table>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-primary btn-xl"
-                                onclick="window.location.href='/pagina_nuevo_elemento.html'">Crear nuevo
-                                personaje</button>
-                            <button type="button" class="btn btn-success btn-xl" onclick='loadMore()'>Cargar más 
-                                elementos</button>
-                        </div>
+                        <button type="button" class="btn btn-success btn-xl" onclick='loadMore()'>Cargar más
+                            elementos</button>
+                        <br>
+                        <br>
+                        <button type="button" class="btn btn-primary btn-xl"
+                            onclick="window.location.href='/pagina_nuevo_elemento.html'">Crear nuevo
+                            personaje</button>
                     </div>
                 </div>
             </div>
