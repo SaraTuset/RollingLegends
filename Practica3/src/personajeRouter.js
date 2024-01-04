@@ -3,6 +3,8 @@ import * as personajeService from './personajeService.js';
 
 const router = express.Router();
 
+import { existingUsernames } from './personajeService.js';
+
 let nombreEsBlanco = false;
 let imagenEsBlanco = false;
 let descripcionEsBlanco = false;
@@ -287,6 +289,19 @@ router.get('/elemento/:id/delete', (req, res) => {
     res.render('pagina_principal', { 
         elementos: personajeService.getElementos() 
     });
+});
+
+router.get('/availableUsername', (req, res) => {
+
+    let username = req.query.username;
+
+    let availableUsername = existingUsernames.indexOf(username) === -1;
+
+    let response = {
+        available: availableUsername
+    }
+
+    res.json(response);
 });
 
 export default router;

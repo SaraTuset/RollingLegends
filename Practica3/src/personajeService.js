@@ -1,5 +1,6 @@
 const elementos = new Map();
 let nextId = 0;
+export let existingUsernames = [];
 
 addElemento({ nombre: "Drurak", descripcion: "Drurak solía ser el dueño de una pequeña taberna en uno de los muchos barrios olvidados del reino de Yuwivia. Cuando empezó la guerra, su taverna fue calcinada junto con sus seres queridos. Ahora lucha con sus viejas armas para vengar a aquellos que perdieron su vida por culpa de esta injusta guerra", puntosVida: "50", ataque: "25", defensa: "25", imagen: "http://drive.google.com/uc?export=view&id=1m5AFh_qqn_h2-npItcQjbqJQRaHR0AsO", genero: "masculino", subelementos: [{ nombreSub: "Hacha Antigua", descripcionSub: "Hacha usada por los enanos del reino de Yuwivia", ataqueSub: "10", defensaSub: "0" }, { nombreSub: "Escudo Espumoso", descripcionSub: "Escudo usada por los enanos del reino de Yuwivia, aunque este a sido modificado por Drurak para portar la imagen de una cerveza", ataqueSub: "0", defensaSub: "10" }] });
 
@@ -25,10 +26,15 @@ export function addElemento(elemento) {
     let id = nextId++;
     elemento.id = id.toString();
     elementos.set(elemento.id, elemento);
+    existingUsernames.push(elemento.nombre);
 }
 
 export function editElemento(contenido, id) {
     let elemento = elementos.get(id);
+    let index = existingUsernames.indexOf(elemento.nombre);
+    if (index !== -1) {
+        existingUsernames.splice(index, 1);
+    }
     elemento.nombre = contenido.nombre;
     elemento.descripcion = contenido.descripcion;
     elemento.puntosVida = contenido.puntosVida;
@@ -36,6 +42,7 @@ export function editElemento(contenido, id) {
     elemento.defensa = contenido.defensa;
     elemento.imagen = contenido.imagen;
     elemento.genero = contenido.genero;
+    existingUsernames.push(contenido.nombre);
 }
 
 export function addSubElemento(nuevoSubelemento, id) {
@@ -46,8 +53,12 @@ export function addSubElemento(nuevoSubelemento, id) {
     elemento.subelementos.push(nuevoSubelemento);
 }
 
-
-export function deleteElemento(id) {
+export function deleteElemento(id){
+    let valorAsociado = elementos.get(id);
+    let index = existingUsernames.indexOf(valorAsociado.nombre);
+    if (index !== -1) {
+        existingUsernames.splice(index, 1);
+    }
     elementos.delete(id);
 }
 
