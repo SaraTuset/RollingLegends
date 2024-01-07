@@ -294,7 +294,6 @@ router.get('/elemento/:id/delete', (req, res) => {
 router.get('/availableUsername', (req, res) => {
 
     let username = req.query.username;
-    console.log(username);
     let availableUsername = existingUsernames.indexOf(username) === -1;
 
     let response = {
