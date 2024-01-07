@@ -89,22 +89,35 @@ function filtrarNinguno() {
 }
 
 
-function buscador() {
+async function searchUsername() {
 
-    let input = document.getElementById('buscador').value;
-    let lista = document.getElementsByClassName('element');
-    let lista2 = document.getElementById('elementos').getElementsByTagName('p');
+    let username = document.getElementById('buscador').value.toLowerCase();
+    let boton = document.getElementById("cargarMas");
 
-    for (i = 0; i < lista.length; i++) {
-        console.log(lista2[i].innerHTML);
-        if (!lista2[i].innerHTML.toLowerCase().includes(input)) {
-            lista[i].style.display = "none";
-            lista[i].style.position = "absolute";
-        }
-        else {
-            lista[i].style.display = "block";
-            lista[i].style.position = "static";
-        }
+    boton.style.display = "none";
+    boton.style.position = "absolute";
+
+    if (username.length === 0) {
+        const response = await fetch(`/reloadPj`);
+        const newPersonajes = await response.text();
+
+        const personajesDiv = document.getElementById("elementos");
+
+        personajesDiv.innerHTML = newPersonajes;
+
+        boton.style.display = "inline";
+        boton.style.position = "static";
+    }
+    else {
+        console.log("n  null");
+        const response = await fetch(`/searchUsername?username=${username}`);
+        let lista2 = document.getElementById('elementos').getElementsByTagName('p');
+
+        const newPersonajes = await response.text();
+
+        const personajesDiv = document.getElementById("elementos");
+
+        personajesDiv.innerHTML = newPersonajes;
     }
 }
 
@@ -118,8 +131,8 @@ async function checkUsernameAvailability() {
 
     const responseObj = await response.json();
 
-    let message = responseObj.available? 
-        '<p>Disponible</p>':
+    let message = responseObj.available ?
+        '<p>Disponible</p>' :
         '<p>No disponible</p>';
 
     const messageDiv = document.getElementById('message');

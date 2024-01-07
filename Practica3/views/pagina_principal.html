@@ -46,7 +46,7 @@
                             onclick="showGeneros('BotonFiltrar','BotonMasculino', 'BotonFemenino', 'BotonVolver'); filtrarNinguno()">Volver</a>
                     </li>
                     <li class="nav-item px-lg-4">
-                        <input id="buscador" onkeyup="buscador()" type="text" name="search"
+                        <input id="buscador" oninput="searchUsername()" type="text" name="search"
                             placeholder="Buscar..">
                     </li>
                 </ul>
@@ -69,7 +69,8 @@
                         </div>
 
                         </table>
-                        <button type="button" class="btn btn-success btn-xl" onclick='loadMore()'>Cargar más
+                        <button type="button" id="cargarMas" class="btn btn-success btn-xl" onclick='loadMore()'>Cargar
+                            más
                             elementos</button>
                         <br>
                         <br>

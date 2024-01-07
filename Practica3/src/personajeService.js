@@ -53,7 +53,7 @@ export function addSubElemento(nuevoSubelemento, id) {
     elemento.subelementos.push(nuevoSubelemento);
 }
 
-export function deleteElemento(id){
+export function deleteElemento(id) {
     let valorAsociado = elementos.get(id);
     let index = existingUsernames.indexOf(valorAsociado.nombre);
     if (index !== -1) {
@@ -79,14 +79,12 @@ export function getPersonajes(from, to) {
     }
 }
 
-export function getPersonaje(nombreB) {
-    let values = [...elementos.values()];
-    if (nombreB !== undefined) {
-        for (let [key, value] of elementos.entries()) {
-            if (value === nombreB)
-                return getElemento(key);
-        }
-    } else {
-        return values;
+export function getSearchPersonajes(username) {
+
+    let usernames = [];
+    for (let [key, value] of elementos.entries()) {
+        if (value.nombre.toLowerCase().includes(username))
+            usernames.push(getElemento(key));
     }
+    return usernames;
 }
