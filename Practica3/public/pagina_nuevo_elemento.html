@@ -29,7 +29,7 @@
                     <div class="col-xl-9 mx-auto">
                         <div class="cta-inner bg-faded text-center rounded">
                             <h2 class="section-heading mb-5">
-                                <form role="form" action="/elemento/new" method="post">
+                                <form role="form" id="formulario" action="/elemento/new" method="post">
                                     <div class="form-group">
                                         <label for="inputName">Nombre:</label>
                                         <input class="form-control" name="nombre" type="text" id="inputName" oninput='checkUsernameAvailability()' placeholder="Escribe nombre" required pattern="[A-Z].+">
@@ -67,7 +67,7 @@
                                     </div>
                                     <br>
                                     <div class="btn-group flex-wrap btn-form">
-                                        <button type="submit" class="btn btn-success btn-xl">Guardar</button>
+                                        <button type="submit" class="btn btn-success btn-xl" onclick="revisarNombre('nada', 1)">Guardar</button>
                                         <button type="button" class="btn btn-danger btn-xl"><a href="/"> Cancelar</a></button>
                                     </div>
                             </form>

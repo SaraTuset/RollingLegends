@@ -139,3 +139,23 @@ async function checkUsernameAvailability() {
     messageDiv.innerHTML = message;
     console.log("La función checkUsernameAvailability se está ejecutando.");
 }
+
+function revisarNombre(nombre, numero) {
+    document.getElementById('formulario').addEventListener('submit', function(event) {
+        let valorCampo = document.getElementById('inputName').value;
+        let messageDiv = document.getElementById('message');
+        console.log('valorCampo:', valorCampo);
+        console.log('nombre:', nombre);
+        if (numero === 2) {
+            if (valorCampo !== nombre && messageDiv.innerHTML === '<p>No disponible</p>'){
+                event.preventDefault();
+                alert('Por favor, no ponga un nombre ya existente.');
+            }
+        } else if (numero === 1){
+            if (messageDiv.innerHTML === '<p>No disponible</p>'){
+                event.preventDefault();
+                alert('Por favor, no ponga un nombre ya existente.');
+            }
+        }
+    });
+}
