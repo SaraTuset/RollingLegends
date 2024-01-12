@@ -12626,7 +12626,7 @@ fieldset:disabled .btn {
 }
 
 body {
-  background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("http://drive.google.com/uc?export=view&id=14-AhRx-7gu6BKeGSMJkayz_evDVQcCge");
+  background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("/imagenes/bg.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
