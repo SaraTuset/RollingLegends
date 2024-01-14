@@ -285,10 +285,12 @@ router.post('/elemento/:id/subelement', (req, res) => {
 router.get('/elemento/:id/delete', (req, res) => {
 
     personajeService.deleteElemento(req.params.id);
+    res.redirect('/');
+    /*const elementos = personajeService.getPersonajes(0, 4);
 
     res.render('pagina_principal', {
-        elementos: personajeService.getElementos()
-    });
+        elementos: elementos
+    });*/
 });
 
 router.get('/availableUsername', (req, res) => {
