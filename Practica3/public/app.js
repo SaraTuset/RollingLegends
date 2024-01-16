@@ -109,10 +109,7 @@ async function searchUsername() {
         boton.style.position = "static";
     }
     else {
-        console.log("n  null");
         const response = await fetch(`/searchUsername?username=${username}`);
-        let lista2 = document.getElementById('elementos').getElementsByTagName('p');
-
         const newPersonajes = await response.text();
 
         const personajesDiv = document.getElementById("elementos");
