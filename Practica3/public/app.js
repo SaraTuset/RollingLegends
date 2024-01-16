@@ -9,6 +9,7 @@ async function loadMore() {
 
     const response = await fetch(`/personajes?from=${from}&to=${to}`);
 
+
     const newPersonajes = await response.text();
 
     const personajesDiv = document.getElementById("elementos");
@@ -16,6 +17,13 @@ async function loadMore() {
     personajesDiv.innerHTML += newPersonajes;
 
     loadMoreRequests++;
+
+    let nElementos = document.getElementsByClassName("element");
+    if (nElementos.length < to) {
+        let boton = document.getElementById("cargarMas");
+        boton.style.display = "none";
+        boton.style.position = "absolute";
+    }
 }
 
 function showGeneros(BotonFiltro, BotonMasculino, BotonFemenino, BotonVolver) {
@@ -98,6 +106,7 @@ async function searchUsername() {
     boton.style.position = "absolute";
 
     if (username.length === 0) {
+        loadMoreRequests=0;
         const response = await fetch(`/reloadPj`);
         const newPersonajes = await response.text();
 
@@ -138,18 +147,18 @@ async function checkUsernameAvailability() {
 }
 
 function revisarNombre(nombre, numero) {
-    document.getElementById('formulario').addEventListener('submit', function(event) {
+    document.getElementById('formulario').addEventListener('submit', function (event) {
         let valorCampo = document.getElementById('inputName').value;
         let messageDiv = document.getElementById('message');
         console.log('valorCampo:', valorCampo);
         console.log('nombre:', nombre);
         if (numero === 2) {
-            if (valorCampo !== nombre && messageDiv.innerHTML === '<p>No disponible</p>'){
+            if (valorCampo !== nombre && messageDiv.innerHTML === '<p>No disponible</p>') {
                 event.preventDefault();
                 alert('Por favor, no ponga un nombre ya existente.');
             }
-        } else if (numero === 1){
-            if (messageDiv.innerHTML === '<p>No disponible</p>'){
+        } else if (numero === 1) {
+            if (messageDiv.innerHTML === '<p>No disponible</p>') {
                 event.preventDefault();
                 alert('Por favor, no ponga un nombre ya existente.');
             }
