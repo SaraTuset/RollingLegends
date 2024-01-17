@@ -155,13 +155,16 @@ function revisarNombre(nombre, numero) {
         if (numero === 2) {
             if (valorCampo !== nombre && messageDiv.innerHTML === '<p>No disponible</p>') {
                 event.preventDefault();
-                alert('Por favor, no ponga un nombre ya existente.');
+                messageDiv.innerHTML = 'Por favor, no ponga un nombre ya existente';
             }
         } else if (numero === 1) {
             if (messageDiv.innerHTML === '<p>No disponible</p>') {
                 event.preventDefault();
-                alert('Por favor, no ponga un nombre ya existente.');
+                messageDiv.innerHTML = 'Por favor, no ponga un nombre ya existente';
             }
+        }
+        if (messageDiv.innerHTML !== '<p>Disponible</p>'){
+            event.preventDefault();
         }
     });
 }
