@@ -32,17 +32,17 @@
                                 <form role="form" id="formulario" action="/elemento/new" method="post">
                                     <div class="form-group">
                                         <label for="inputName">Nombre:</label>
-                                        <input class="form-control" name="nombre" type="text" id="inputName" oninput='checkUsernameAvailability()' placeholder="Escribe nombre" required pattern="[A-Z].+">
+                                        <input class="form-control" name="nombre" type="text" id="inputName" oninput='checkUsernameAvailability()' placeholder="Escribe nombre" required title="El nombre debe empezar por mayúscula" pattern="[A-Z].+">
                                         <div id="message"></div>
                                     </div>
                                     
                                     <div class="form-group">
                                         <label for="inputImagen">Imagen:</label>
-                                        <input class="form-control" name ="imagen" type="url" id="inputImagen" placeholder="Escribe url" required>
+                                        <input class="form-control" name ="imagen" type="url" id="inputImagen" placeholder="Escribe url" required title="Debe escribir una URL válida" pattern="https?://.+">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputText">Descripción:</label>
-                                        <input class="form-control" name ="descripcion" type="text" id="inputText" placeholder="Escribe descripción" required  minlength="50"  maxlength="500">
+                                        <input class="form-control" name ="descripcion" type="text" id="inputText" placeholder="Escribe descripción" required  pattern=".{50,500}" title="Debe ingresar entre 50 y 500 caracteres">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputVida">Puntos de vida:</label>

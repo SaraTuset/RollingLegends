@@ -57,16 +57,16 @@
                                 <form role="form" id="formulario" action="/elemento/{{elemento.id}}/edited" method="post">
                                     <div class="form-group">
                                         <label for="inputName">Nombre:</label>
-                                        <input class="form-control" name="nombre" type="text" id="inputName" href="elemento/{{id}}" value="{{elemento.nombre}}" oninput='checkUsernameAvailability()' required pattern="[A-Z].+">
+                                        <input class="form-control" name="nombre" type="text" id="inputName" href="elemento/{{id}}" value="{{elemento.nombre}}" oninput='checkUsernameAvailability()' required title="El nombre debe empezar por mayúscula" pattern="[A-Z].+">
                                         <div id="message"></div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputImagen">Imagen:</label>
-                                        <input class="form-control" name = "imagen" type="url" id="inputImagen" href="elemento/{{id}}" value="{{elemento.imagen}}" required>
+                                        <input class="form-control" name = "imagen" type="url" id="inputImagen" href="elemento/{{id}}" value="{{elemento.imagen}}" required title="Debe escribir una URL válida" pattern="https?://.+">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputText">Descripción:</label>
-                                        <input class="form-control" name = "descripcion" type="text" id="inputText" href="elemento/{{id}}" value="{{elemento.descripcion}}" required  minlength="50"  maxlength="500">
+                                        <input class="form-control" name = "descripcion" type="text" id="inputText" href="elemento/{{id}}" value="{{elemento.descripcion}}" required  pattern=".{50,500}" title="Debe ingresar entre 50 y 500 caracteres">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputVida">Puntos de vida:</label>
